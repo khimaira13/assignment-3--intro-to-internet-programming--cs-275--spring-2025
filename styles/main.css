@@ -1,0 +1,137 @@
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 40%;
+  width: 15em;
+  padding: .5em;
+  background: teal;
+  text-align: center;
+  overflow: hidden;
+  transition: all .1s ease;
+  z-index: -5;
+}
+
+.open {
+  top: 4.5em;
+  height: 50px;
+  z-index: 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+
+nav ul > li {
+  display: block;
+}
+
+nav ul > li a {
+  display: block;
+  background: red;
+  padding: 1em;
+  font-family: sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+nav ul > li > ul li a {
+  display: none;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: teal;
+  padding: 1em;
+  margin: 0;
+  text-align: right;
+  z-index: 50;
+}
+
+header ul li:first-child a {
+  color: white;
+  text-decoration: none;
+  font-family: sans-serif;
+  padding: .2em;
+}
+
+header ul li:last-child a {
+  color: white;
+  text-decoration: none;
+  font-family: sans-serif;
+  padding: 0;
+}
+
+@media (max-width: 736px) {
+  nav {
+    position: absolute;
+    left: -250px;
+    top: 4.5em;
+    width: 6em;
+    height: 9%;
+    background: teal;
+    transition: all .5s ease;
+    z-index: -5;
+    box-shadow: none;
+  }
+
+  .open {
+    left: 0;
+    top: 4.5em;
+    width: 6em;
+    height: 9%;
+    overflow: none;
+    z-index: 5;
+  }
+
+  nav ul {
+    display: block;
+    flex-direction: column;
+    list-style: none;
+  }
+
+  nav ul > li {
+    margin-bottom: 1em;
+  }
+}
+
+.modal-panel {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .8);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  transition: all .5s ease;
+}
+
+.modal-panel.active {
+  display: flex;
+}
+
+.modal-content-pane {
+  background: blue;
+  width: 80%;
+  max-width: 1000px;
+  height: 80%;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .4);
+  transition: transform .5s ease;
+}
